@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Track-Mnagement</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5 mb-4">Track Management</h1>
+
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Start Date</span>
+                    <input type="text" class="form-control" id="startDate" placeholder="mm/dd/yyyy"
+                        aria-label="Start Date" aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon2">End Date</span>
+                    <input type="text" class="form-control" id="endDate" placeholder="mm/dd/yyyy"
+                        aria-label="End Date" aria-describedby="basic-addon2">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary" id="searchBtn">SEARCH</button>
+            </div>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr class="table-danger">
+                    <th scope="col">SI No</th>
+                    <th scope="col">Moving</th>
+                    <th scope="col">Timestamp</th>
+                    <th scope="col">Sighting Time</th>
+                    <th scope="col">Herd Size</th>
+                    <th scope="col">Male</th>
+                    <th scope="col">Female</th>
+                    <th scope="col">Calf</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr class="trow">
+                    <th scope="row">719</th>
+                    <td>No</td>
+                    <td>2024-05-25
+                        09:12:38</td>
+                    <td>2024-05-25
+                        09:12:02</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>ಬಾಚಿಹಳ್ಳಿ
+                        ಬೇರಗುಂಡಿ
+                        ಬೆಟ್ಟ
+                        12.769786
+                        75.761289</td>
+                    <td>95242e3d-
+                        2b16-48fe-
+                        b04c-
+                        17d4ed6c960
+                        2</td>
+                    <td>Approved</td>
+                    <td>
+                        <button type="button" class="btn btn-secondary"
+                            disabled>No Media Found</button>
+                    </td>
+                </tr>
+                <tr class="trow">
+                    <th scope="row">718</th>
+                    <td>No</td>
+                    <td>2024-05-25
+                        09:02:17</td>
+                    <td>2024-05-25
+                        09:01:24</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>ಜೈದೀಪ್
+                        ದೊಡ್ಡ
+                        ಹುಡುಬೆ</td>
+                    <td>95242e3d-
+                        2b16-48fe-
+                        b04c-
+                        17d4ed6c960</td>
+                    <td>Approved</td>
+                    <td>
+                        <button type="button" class="btn btn-secondary"
+                            disabled>No Media Found</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRecordModal">+</button>
+
+        <!-- Add Record Modal -->
+        <div class="modal fade" id="addRecordModal" tabindex="-1" aria-labelledby="addRecordModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addRecordModalLabel">Add New Record</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="moving" class="form-label">Moving</label>
+                            <select class="form-select" id="moving">
+                                <option value="Yes">Yes</option>
+                                <option value="No" selected>No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="timestamp" class="form-label">Timestamp</label>
+                            <input type="datetime-local" class="form-control" id="timestamp" value="2024-05-25T09:12:38">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sightingTime" class="form-label">Sighting Time</label>
+                            <input type="datetime-local" class="form-control" id="sightingTime"
+                                value="2024-05-25T09:12:02">
+                        </div>
+                        <div class="mb-3">
+                            <label for="herdSize" class="form-label">Herd Size</label>
+                            <input type="number" class="form-control" id="herdSize" value="3">
+                        </div>
+                        <div class="mb-3">
+                            <label for="male" class="form-label">Male</label>
+                            <input type="number" class="form-control" id="male" value="2">
+                        </div>
+                        <div class="mb-3">
+                            <label for="female" class="form-label">Female</label>
+                            <input type="number" class="form-control" id="female" value="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="calf" class="form-label">Calf</label>
+                            <input type="number" class="form-control" id="calf" value="0">
+                        </div>
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Location</label>
+                            <textarea class="form-control" id="location" rows="3">ಬಾಚಿಹಳ್ಳಿ
+                                ಬೇರಗುಂಡಿ
+                                ಬೆಟ್ಟ
+                                12.769786
+                                75.761289</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">User</label>
+                            <input type="text" class="form-control" id="user"
+                                value="95242e3d-2b16-48fe-b04c-17d4ed6c960 2">
+                        </div>
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" id="status">
+                                <option value="Approved" selected>Approved</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="action" class="form-label">Action</label>
+                            <select class="form-select" id="action">
+                                <option value="No Media Found" selected>No Media Found</option>
+                                <option value="Media Found">Media Found</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="addRecord()">Add Record</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+    <script src="script.js"></script>
+</body>
+
+</html>
